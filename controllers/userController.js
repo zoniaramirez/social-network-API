@@ -1,6 +1,5 @@
 // controllers/userController.js
-const User = require('../models/User');
-const Thought = require('../models/Thought');
+const { Thought, User } = require('../models')
 
 module.exports = {
   async getUsers(req, res) {

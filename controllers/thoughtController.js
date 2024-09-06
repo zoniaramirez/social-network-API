@@ -1,6 +1,5 @@
 // controllers/thoughtController.js
-const Thought = require('../models/Thought');
-const User = require('../models/User');
+const { Thought, User } = require('../models')
 
 module.exports = {
   async getThoughts(req, res) {
@@ -55,7 +54,7 @@ module.exports = {
   },
   async deleteThought(req, res) {
     try {
-      const thought = await Thought.findOneAndRemove({ _id: req.params.thoughtId });
+      const thought = await Thought.findOneAndDelete({ _id: req.params.thoughtId });
       if (!thought) {
         return res.status(404).json({ message: 'No thought found with that ID' });
       }
